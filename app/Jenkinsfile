@@ -18,10 +18,10 @@ pipeline {
         
         stage('Build') {
             steps {
-                echo 'Compiling and building'
-                sh 'cd app'
-		sh 'pwd'
-                sh 'go build'
+		dir('app') {
+                	echo 'Compiling and building'
+                	sh 'go build'
+		}
             }
         }
 
