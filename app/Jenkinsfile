@@ -13,18 +13,21 @@ pipeline {
 	}
     
 	stages {        
-		stage('Pre Test') {
-			steps {
-				echo 'Installing dependencies'
-				sh 'go version'
-			}
-		}
 			
-		stage('Build') {
+		stage('Golang Build') {
 			steps {
 				dir('app') {
 					echo 'Compiling and building'
 					sh 'go build'
+				}
+			}
+		}
+
+		stage('Docker Build') {
+			steps {
+				dir('app') {
+					echo 'Performing docker build'
+					sh 'docker build -t myapp:1.0 .'
 				}
 			}
 		}
