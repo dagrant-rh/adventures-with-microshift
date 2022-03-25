@@ -21,6 +21,7 @@ pipeline {
                 echo 'Compiling and building'
                 sh 'cd app'
                 sh 'go build'
+		sh 'pwd'
             }
         }
 
