@@ -1,4 +1,5 @@
 pipeline {
+
 	agent { label 'docker' } 
 	tools {
 		go 'go1.18'
@@ -24,7 +25,6 @@ pipeline {
 				dir('app') {
 					echo 'Compiling and building'
 					sh 'go build'
-					}
 				}
 			}
 		}
