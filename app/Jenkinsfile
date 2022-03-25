@@ -28,7 +28,7 @@ pipeline {
 				docker.withRegistry('https://registry.redhat.io', 'registry-redhat-io') {
 					dir('app') {
 						echo 'Performing docker build'
-						sh 'docker build -t myapp:1.0 .'
+						def customImage = docker.build("my-image:latest")
 					}
 				}
 			}
